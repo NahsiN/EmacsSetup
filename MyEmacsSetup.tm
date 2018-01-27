@@ -9,8 +9,6 @@
   walks through from install all the way to configuring it for my use. Here's
   a story to why I use Emacs.
 
-  \;
-
   In my early days, I was looking for a universal text editor. The trend was
   and still is to use specialized IDEs. For Matlab, use the inbuilt Matlab
   editor, for LaTeX use Texmaker, Texworks etc, for C use Geany or some other
@@ -46,7 +44,7 @@
   no such issues. It would work just fine on a Desktop, a VM or over an ssh
   tunnell. It was functional, wasn't bloated. At that point, I knew that I
   was going to spend the rest of my life looking for ways to live inside
-  Emacs.
+  Emacs.\ 
 
   \;
 
@@ -61,10 +59,6 @@
 
     No extra addons/packages are installed.
   </big-figure>
-
-  \;
-
-  \;
 
   <section|Installation>
 
@@ -89,7 +83,7 @@
   Dark
 
   <\itemize>
-    <item>monokai
+    <item>monokai, solarized dark
   </itemize>
 
   <\itemize>
@@ -105,6 +99,31 @@
   <\itemize>
     <item>IDE, autocompany, go to definition, ipython shell, debug,\ 
   </itemize>
+
+  I'm going to choose Elpy as my Python IDE. First we install some required
+  Python packages
+
+  <\shell-code>
+    sudo apt install python-rope python3-rope python-jedi python3-jedi flake8
+    python-flake8 python3-flake8 yapf yapf3 virtualenv
+  </shell-code>
+
+  Add the MELPA repo to your packages-list. <with|font-series|bold|Refer to
+  Productivity section>. Edit your .emacs file
+
+  \;
+
+  Make sure the ELPY packages are installed. Add the following to your .emacs
+
+  <\scm-code>
+    (package-initialize)
+
+    (elpy-enable)
+  </scm-code>
+
+  <subsection|R>
+
+  Let's install ESS
 
   <section|LaTeX>
 
@@ -152,15 +171,104 @@
 
   \;
 
-  <section|Themes>
+  <section|Org Mode>
 
-  \;
+  Here should be tweaks to ORG mode over the years
+
+  <\itemize>
+    <item>How to sync across multiple devices
+  </itemize>
 
   <section|Productivity>
 
-  Recent file mode to reload your most recent files
+  <\itemize>
+    \;
 
-  ORG mode
+    <item>Org mode
+  </itemize>
+
+  Install ORG mode
+
+  <shell|sudo apt install org-mode org-mode-doc>
+
+  Add MELPA repository to your package repos
+
+  (require 'package)
+
+  (add-to-list 'package-archives
+
+  \ \ \ \ \ \ \ \ \ \ \ \ \ '("melpa-stable" .
+  "https://stable.melpa.org/packages/"))
+
+  \;
+
+  ELPA packages present in the Debian repo
+
+  <shell|sudo apt install elpa-company elpa-highlight-indentation elpa-pyenv
+  elpa-yasnippet elpa-s elpa-ivy elpa-org-bullets elpa-solarized-theme
+  elpa-monokai-theme>\ 
+
+  elpa-pyenv does not exist?
+
+  The following are different small productivity items that help me. Just
+  read the comments.
+
+  <\scm-code>
+    ;;-----------Turn on certain things by default.----------------------;;
+
+    ;; Recent File Mode
+
+    (recentf-mode 1)
+
+    (setq recentf-max-menu-items 50)
+
+    (global-set-key "\\C-x\\ \\C-r" 'recentf-open-files)
+
+    \;
+
+    ;; Tabbar
+
+    (tabbar-mode 1)
+
+    \;
+
+    ;; save/restore opened files and windows config
+
+    (desktop-save-mode 0) ; 0 for off
+
+    \;
+
+    ;; Saves mini-buffer history upon exit
+
+    (savehist-mode 1)
+
+    \;
+
+    ;; start server at startup
+
+    (server-start)
+
+    \;
+
+    ;; line numbers only for programming modes
+
+    (add-hook 'prog-mode-hook 'linum-mode)
+
+    \;
+
+    ;; Custom buffer menu function because the default one doesn't put the
+    cursor
+
+    ;; in the buffer window
+
+    (global-set-key (kbd "C-x C-b") 'buffer-menu)
+
+    \;
+
+    \;
+  </scm-code>
+
+  \;
 
   \;
 
@@ -174,18 +282,20 @@
     <associate|font|roman>
     <associate|math-font|roman>
     <associate|page-type|letter>
+    <associate|preamble|false>
   </collection>
 </initial>
 
 <\references>
   <\collection>
-    <associate|auto-1|<tuple|1|2>>
-    <associate|auto-2|<tuple|1|2>>
-    <associate|auto-3|<tuple|2|3>>
-    <associate|auto-4|<tuple|2.1|3>>
-    <associate|auto-5|<tuple|3|3>>
-    <associate|auto-6|<tuple|4|3>>
-    <associate|auto-7|<tuple|5|3>>
+    <associate|auto-1|<tuple|1|?>>
+    <associate|auto-2|<tuple|1|?>>
+    <associate|auto-3|<tuple|2|?>>
+    <associate|auto-4|<tuple|2.1|?>>
+    <associate|auto-5|<tuple|2.2|?>>
+    <associate|auto-6|<tuple|3|?>>
+    <associate|auto-7|<tuple|4|?>>
+    <associate|auto-8|<tuple|5|?>>
   </collection>
 </references>
 
@@ -216,17 +326,21 @@
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-4>>
 
-      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|3<space|2spc>LaTeX>
+      <with|par-left|<quote|1tab>|2.2<space|2spc>R
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-5><vspace|0.5fn>
+      <no-break><pageref|auto-5>>
 
-      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|4<space|2spc>Themes>
+      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|3<space|2spc>LaTeX>
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
       <no-break><pageref|auto-6><vspace|0.5fn>
 
+      <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|4<space|2spc>Org
+      Mode> <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
+      <no-break><pageref|auto-7><vspace|0.5fn>
+
       <vspace*|1fn><with|font-series|<quote|bold>|math-font-series|<quote|bold>|5<space|2spc>Productivity>
       <datoms|<macro|x|<repeat|<arg|x>|<with|font-series|medium|<with|font-size|1|<space|0.2fn>.<space|0.2fn>>>>>|<htab|5mm>>
-      <no-break><pageref|auto-7><vspace|0.5fn>
+      <no-break><pageref|auto-8><vspace|0.5fn>
     </associate>
   </collection>
 </auxiliary>
