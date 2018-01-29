@@ -51,7 +51,7 @@
  '(magit-diff-use-overlays nil)
  '(org-agenda-files
    (quote
-    ("~/Documents/GTD/projects.org" "~/Documents/GTD/tasks.org" "~/Documents/GTD/inbox.org" "~/Documents/GTD/someday.org")))
+    ("~/Documents/GTD/projects.org" "~/Documents/GTD/tasks.org" "~/Documents/GTD/inbox.org" "")))
  '(org-capture-templates
    (quote
     (("t" "Todo" entry
@@ -62,6 +62,14 @@
       ""))))
  '(org-log-refile (quote time))
  '(org-refile-targets (quote ((org-agenda-files :level . 1))))
+ '(org-tag-alist
+   (quote
+    (("work" . 119)
+     ("personal" . 112)
+     ("friends" . 102)
+     ("family" . 104)
+     ("cont_edu" . 101)
+     ("" . 0))))
  '(package-selected-packages
    (quote
     (elpy yasnippet s pyvenv highlight-indentation company)))
@@ -108,6 +116,7 @@
 (require 'package)
 (add-to-list 'package-archives
              '("melpa-stable" . "https://stable.melpa.org/packages/"))
+
 ;;-------------------------------------------------------------;;
 
 ;;-----------Turn on certain things by default.----------------------;;
@@ -173,12 +182,6 @@
 
 (setq org-default-notes-file "~/Documents/GTD/inbox.org")
 ;;-----------------------------------------------------------;;
-
-
-
-
-
-
 
 
 
