@@ -54,7 +54,7 @@ Dark
    I'm going to choose Elpy as my Python IDE. First we install some required Python packages
    #+BEGIN_SRC bash
    sudo apt install python-rope python3-rope python-jedi python3-jedi flake8 python-flake8 
-   python3-flake8 yapf yapf3 virtualenv
+   python3-flake8 yapf yapf3 virtualenv elpa-pyvenv
    #+END_SRC
    Add the MELPA repo to your packages-list. Refer to Productivity section. Edit your .emacs file
    Make sure the ELPY packages are installed. Add the following to your .emacs
@@ -66,7 +66,7 @@ Dark
    Let's install ESS
 ** LaTeX
    For this, we need to install Auctex 
-   #+BEGIN_SRC bash
+   #+BEGIN_SRC shell
    sudo apt install auctex
    #+END_SRC
    
@@ -87,7 +87,12 @@ Dark
    (setq TeX-source-correlate-mode t)
    ;;-----------------------------------------------------------------------;;
    #+END_SRC
-
+   
+** YAML
+   Install YAML mode
+   #+BEGIN_SRC shell
+   sudo apt install yaml-mode
+   #+END_SRC
 * Org Mode
   Install ORG mode
   #+BEGIN_SRC bash
@@ -106,7 +111,7 @@ Dark
              '("melpa-stable" . "https://stable.melpa.org/packages/"))
   #+END_SRC	     
   ELPA packages present in the Debian repo
-  #+BEGIN_SRC emacs-lisp
+  #+BEGIN_SRC shell
   sudo apt install elpa-company elpa-highlight-indentation elpa-yasnippet elpa-s elpa-ivy 
   elpa-org-bullets elpa-solarized-theme elpa-monokai-theme
   #+END_SRC

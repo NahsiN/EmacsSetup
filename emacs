@@ -23,7 +23,7 @@
  '(custom-enabled-themes (quote (leuven)))
  '(custom-safe-themes
    (quote
-    ("e9df267a1c808451735f2958730a30892d9a2ad6879fb2ae0b939a29ebf31b63" "8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" default)))
+    ("d677ef584c6dfc0697901a44b885cc18e206f05114c8a3b7fde674fce6180879" "e9df267a1c808451735f2958730a30892d9a2ad6879fb2ae0b939a29ebf31b63" "8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" default)))
  '(fci-rule-color "#073642")
  '(highlight-changes-colors (quote ("#d33682" "#6c71c4")))
  '(highlight-symbol-colors
@@ -51,7 +51,7 @@
  '(magit-diff-use-overlays nil)
  '(org-agenda-files
    (quote
-    ("~/Documents/GTD/projects.org" "~/Documents/GTD/tasks.org" "~/Documents/GTD/inbox.org" "")))
+    ("~/Documents/GTD/projects.org" "~/Documents/GTD/tasks.org")))
  '(org-capture-templates
    (quote
     (("t" "Todo" entry
@@ -61,7 +61,11 @@
       (file+headline "~/Documents/GTD/inbox.org" "Notes")
       ""))))
  '(org-log-refile (quote time))
- '(org-refile-targets (quote ((org-agenda-files :level . 1))))
+ '(org-refile-targets
+   (quote
+    ((org-agenda-files :level . 1)
+     ("~/Documents/GTD/someday.org" :level . 1)
+     ("~/Documents/GTD/trash.org" :level . 1))))
  '(org-tag-alist
    (quote
     (("work" . 119)
@@ -144,6 +148,9 @@
 ;; line numbers only for programming modes
 (add-hook 'prog-mode-hook 'linum-mode)
 
+;; auto close bracket insertion
+(electric-pair-mode 1)
+
 ;;--------------------------------------------------------------------;;
 
 
@@ -178,7 +185,7 @@
 (global-set-key "\C-ca" 'org-agenda)
 (global-set-key "\C-cc" 'org-capture)
 (global-set-key "\C-cb" 'org-iswitchb)
-
+(add-to-list 'org-modules "org-habit")
 
 (setq org-default-notes-file "~/Documents/GTD/inbox.org")
 ;;-----------------------------------------------------------;;
