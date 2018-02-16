@@ -20,10 +20,11 @@
  '(cua-normal-cursor-color "#839496")
  '(cua-overwrite-cursor-color "#b58900")
  '(cua-read-only-cursor-color "#859900")
- '(custom-enabled-themes (quote (leuven)))
+ '(custom-enabled-themes (quote (solarized-light)))
  '(custom-safe-themes
    (quote
-    ("d677ef584c6dfc0697901a44b885cc18e206f05114c8a3b7fde674fce6180879" "e9df267a1c808451735f2958730a30892d9a2ad6879fb2ae0b939a29ebf31b63" "8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" default)))
+    ("a8245b7cc985a0610d71f9852e9f2767ad1b852c2bdea6f4aadc12cce9c4d6d0" "1373e3623ed5d758ef06dd19f2c8a736a69a15496c745a113d42230ab71d6b58" "d677ef584c6dfc0697901a44b885cc18e206f05114c8a3b7fde674fce6180879" "e9df267a1c808451735f2958730a30892d9a2ad6879fb2ae0b939a29ebf31b63" "8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" default)))
+ '(elpy-rpc-python-command "python3")
  '(fci-rule-color "#073642")
  '(highlight-changes-colors (quote ("#d33682" "#6c71c4")))
  '(highlight-symbol-colors
@@ -49,6 +50,9 @@
    (quote
     ("#002b36" "#002b36" "#002b36" "#002b36" "#002b36" "#002b36" "#002b36" "#002b36")))
  '(magit-diff-use-overlays nil)
+ '(nrepl-message-colors
+   (quote
+    ("#CC9393" "#DFAF8F" "#F0DFAF" "#7F9F7F" "#BFEBBF" "#93E0E3" "#94BFF3" "#DC8CC3")))
  '(org-agenda-files
    (quote
     ("~/Documents/GTD/projects.org" "~/Documents/GTD/tasks.org")))
@@ -77,8 +81,10 @@
  '(package-selected-packages
    (quote
     (elpy yasnippet s pyvenv highlight-indentation company)))
+ '(pdf-view-midnight-colors (quote ("#DCDCCC" . "#383838")))
  '(pos-tip-background-color "#073642")
  '(pos-tip-foreground-color "#93a1a1")
+ '(python-shell-interpreter "python3")
  '(show-paren-mode t)
  '(smartrep-mode-line-active-bg (solarized-color-blend "#859900" "#073642" 0.2))
  '(term-default-bg-color "#002b36")
@@ -172,6 +178,7 @@
 ;;--------------------------------Python----------------------------;;
 (package-initialize)
 (elpy-enable)
+(elpy-use-ipython)
 ;;------------------------------------------------------------------;;
 
 
@@ -185,17 +192,18 @@
 (global-set-key "\C-ca" 'org-agenda)
 (global-set-key "\C-cc" 'org-capture)
 (global-set-key "\C-cb" 'org-iswitchb)
-(add-to-list 'org-modules "org-habit")
+;; (add-to-list 'org-modules "org-habit")
 
 (setq org-default-notes-file "~/Documents/GTD/inbox.org")
 ;;-----------------------------------------------------------;;
 
 
+(require 'git)
 
 
-
-
-
+;; Custom buffer menu function because the default one doesn't put the cursor
+;; in the buffer window
+;; (global-set-key (kbd "C-x C-b") 'buffer-menu)
 
 
 

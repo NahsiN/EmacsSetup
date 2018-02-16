@@ -50,18 +50,42 @@ Dark
 
 
 * Programming
-** Python
+** COMMENT Python
    I'm going to choose Elpy as my Python IDE. First we install some required Python packages
-   #+BEGIN_SRC bash
+   #+BEGIN_SRC shell
    sudo apt install python-rope python3-rope python-jedi python3-jedi flake8 python-flake8 
    python3-flake8 yapf yapf3 virtualenv elpa-pyvenv
    #+END_SRC
    Add the MELPA repo to your packages-list. Refer to Productivity section. Edit your .emacs file
    Make sure the ELPY packages are installed. Add the following to your .emacs
    #+BEGIN_SRC emacs-lisp
-   (package-initialize)
-   (elpy-enable)
+     (package-initialize)
+     (elpy-enable)
+     (elpy-use-ipython)
+     (elpy-rpc-python-command "python3")
    #+END_SRC
+   The last two lines is to use the ipython3 interpreter by default and to use python3 for as the rpc
+   backend. This is because there is an issue with the function elpy-goto-definition when using the default
+   python(python2) as the rpc backend. Consider the following snippet
+   #+BEGIN_SRC python
+     def print_text(text: str) -> None:
+	 print(text)
+	 return None
+
+     print_text('hello world')
+   #+END_SRC
+   Putting the cursor at the beginning of print_text() and pressing `Alt-.` will fail with message
+   "No definition found". However removing the type annotation as follows works.
+   #+BEGIN_SRC python
+     def print_text(text):
+	 print(text)
+	 return None
+
+     print_text('hello world')
+   #+END_SRC
+   The issue is with correctly resolving type annotations or more generally function annotations introduced
+   as features in python3 [[https://www.python.org/dev/peps/pep-0484/][PEP484]] and [[https://www.python.org/dev/peps/pep-3107/][PEP3107]] respectively.
+
 ** R
    Let's install ESS
 ** LaTeX
