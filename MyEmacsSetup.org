@@ -3,27 +3,22 @@
 #+DATE: <2018-01-26 Fri>
 
 This document describes me setting up my Emacs on an Ubuntu system. It walks through from 
-install all the way to configuring it for my use. Here's a story to why I use Emacs.
+install all the way to configuring it for my use. The following is a backstory to why I use Emacs.
 
 In my early days, I was looking for a universal text editor. The trend was and still is 
 to use specialized IDEs. For Matlab, use the inbuilt Matlab editor, for LaTeX use Texmaker, 
-Texworks etc, for C use Geany or some other IDE. This got tiring after a while. Researching into 
-this, I realized that Emacs could be the solution. So I took the plunge and let me tell you it 
+Texworks etc, for C use Geany or some other IDE, C# use VSTS code etc. This got tiring after a while. 
+Researching into this, I realized that Emacs could be the solution. So I took the plunge and let me tell you it 
 was cold! As stated by many people before me, this editor has a steep learning curve but learning 
 more about this editor and it never disappoints. 
 
 So during the days of my PhD, I used Emacs to edit my papers, Python code, C code and even some 
-Matlab code but Matlab's IDE just can't be beat. I met with some hiccups along the way but 
+Matlab code but Matlab's IDE just can't be beat for now. I met with some hiccups along the way but 
 every time, the features offered by Emacs didn't disappoint. For example, I'm yet to come across 
-something akin to preview-mode in Auctex or something as convenient as Reftex. Also using Emacs 
-introduced me to the wonderful world of Linux documentation. I realized there was a way to escape 
-the power of Google! But all being said, I still found Emacs Python's IDE package Elpy not 
-up to par. As everybody wants to try the new best thing, the new hip thing in 2015 was Atom. 
-So I went ahead, downloaded it and installed a bunch of packages to set it up as a killer 
-Python IDE. It was lacking LaTeX support at the time so I continued using Emacs but I was 
-convinced that this would be my next editor as it was just so slick.
+something akin to preview-mode in Auctex or something as convenient as Reftex. Also using Emacs s but 
+I was convinced that this would be my next editor as it was just so slick.
 
-Fast forward to May 2017 when I first started my real job at a startup. I was given a Windows 
+Fast forward to May 2017 when I first started my real job at a startup. I was given a Windows
 machine and with the refusal of the IT manager to format my machine and install Ubuntu, my 
 problems began. Forced used to Virtualbox, I installed Ubuntu MATE and set about replicating 
 the install on my PhD computer. Turns out, all these modern editors, Atom, Sublime, VSTS etc. 
@@ -31,30 +26,39 @@ are a hog for RAM and graphics. With limited RAM and graphics capabilities, I fo
 editors to be laggy. At that point, I realized the price of being slick and cool. My trusty old 
 Emacs however had no such issues. It would work just fine on a Desktop, a VM or over an ssh 
 tunnel. It was functional, wasn't bloated. At that point, I knew that I was going to spend 
-the rest of my life looking for ways to live inside Emacs. 
+the rest of my life looking for ways to live inside Emacs.
 
 * Installation
-The following holds from Ubuntu 17.10 onwards. First let us install the basic emacs packages 
-from the repositories
-#+BEGIN_SRC bash
+  The following holds from Ubuntu 17.10 onwards. First let us install the basic emacs packages 
+  from the repositories
+  #+BEGIN_SRC bash
 sudo apt install emacs emacs-goodies-el emacs25-common-non-dfsg
-#+END_SRC
-Let's start up Emacs and change some settings. From Options -> Highlight Matching Parantheses, 
-Options -> Show/Hide -> Column Numbers. Save all the options, Options –> Save Options to save 
-your first .emacs file.
-Themes that I like
-Light
--  leuven 
-Dark
-- monokai, solarized dark
+  #+END_SRC
+  Let's start up Emacs and change some settings. From Options -> Highlight Matching Parantheses, 
+  Options -> Show/Hide -> Column Numbers. Save all the options, Options –> Save Options to save 
+  your first .emacs file.
+  Themes that I like
+  Light
+  -  leuven 
+  Dark
+  - monokai, solarized dark
 
+  Add MELPA repository to your package repos
+  #+BEGIN_SRC emacs-lisp
+  (require 'package)
+  (add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packages/"))
+  #+END_SRC
+  
+  ELPA packages present in the Debian repo I use later
+  #+BEGIN_SRC shell
+  sudo apt install elpa-company elpa-highlight-indentation elpa-yasnippet elpa-s elpa-ivy elpa-org elpa-org-bullets elpa-solarized-theme elpa-monokai-theme elpa-zenburn-theme elpa-magit elpa-markdown-mode elpa-magit
+  #+END_SRC
 
 * Programming
-** COMMENT Python
+** Python
    I'm going to choose Elpy as my Python IDE. First we install some required Python packages
    #+BEGIN_SRC shell
-   sudo apt install python-rope python3-rope python-jedi python3-jedi flake8 python-flake8 
-   python3-flake8 yapf yapf3 virtualenv elpa-pyvenv
+   sudo apt install python-rope python3-rope python-jedi python3-jedi flake8 python-flake8 python3-flake8 yapf yapf3 virtualenv elpa-pyvenv
    #+END_SRC
    Add the MELPA repo to your packages-list. Refer to Productivity section. Edit your .emacs file
    Make sure the ELPY packages are installed. Add the following to your .emacs
@@ -117,28 +121,21 @@ Dark
    #+BEGIN_SRC shell
    sudo apt install yaml-mode
    #+END_SRC
-* Org Mode
+
+* Productivity
+** Org Mode
   Install ORG mode
   #+BEGIN_SRC bash
   sudo apt install org-mode org-mode-doc
   #+END_SRC
-
+  
   Here should be tweaks to ORG mode over the years
   How to sync across multiple devices
 
-
-* Productivity
-  Add MELPA repository to your package repos
-  #+BEGIN_SRC emacs-lisp
-  (require 'package)
-  (add-to-list 'package-archives
-             '("melpa-stable" . "https://stable.melpa.org/packages/"))
-  #+END_SRC	     
-  ELPA packages present in the Debian repo
-  #+BEGIN_SRC shell
-  sudo apt install elpa-company elpa-highlight-indentation elpa-yasnippet elpa-s elpa-ivy 
-  elpa-org-bullets elpa-solarized-theme elpa-monokai-theme
-  #+END_SRC
+** Magit
+   Git poreclain for emacs
+   
+** Part of my emacs file
   The following are different small productivity items that help me. Just read the comments.
   #+BEGIN_SRC emacs-lisp
   ;;-----------Turn on certain things by default.----------------------;;
@@ -166,3 +163,5 @@ Dark
   ;; in the buffer window
   (global-set-key (kbd "C-x C-b") 'buffer-menu)
   #+END_SRC
+  
+  
