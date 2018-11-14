@@ -1,0 +1,2 @@
+- emacs: .emacs file used for Linux systems
+- emacs_mac: .emacs file used for Mac
