@@ -343,6 +343,8 @@ you should place your code here."
   (setq org-babel-default-header-args:jupyter-python '((:async . "yes")))
   (set-default 'preview-scale-function 3.0)
   (org-defkey org-mode-map [(meta return)] 'org-meta-return)  ;;https://github.com/syl20bnr/spacemacs/issues/9603
+  (spacemacs/toggle-highlight-current-line-globally-off)
+
   )
 
 ;; Do not write anything past this comment. This is where Emacs will

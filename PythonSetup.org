@@ -7,5 +7,3 @@
   - when showing the documentation, np.zeros has a problem
 * anaconda-mode
   - (python :variables python-backend 'anaconda) in your dotspacemacs-configuration layers
-
-
