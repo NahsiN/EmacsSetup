@@ -1,0 +1,11 @@
+#+TITLE: Python Development in Spacemacs
+#+AUTHOR: Nishan Mann
+
+- to activate virtualenv use pyvenv ~pyvenv-activate~ and point to the conda directory where the environment is stored. For e.g. /home/nishan/anaconda3/envs/fastbook The modeline will reflect that change 
+* lsp
+  - ~(python :variables python-backend 'lsp)~ in your dotspacemacs-configuration-layers
+  - when showing the documentation, np.zeros has a problem
+* anaconda-mode
+  - (python :variables python-backend 'anaconda) in your dotspacemacs-configuration layers
+
+
