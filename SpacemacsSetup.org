@@ -1,0 +1,17 @@
+#+TITLE: Setting up spacemacs
+#+AUTHOR: Nishan Mann
+#+DATE: today
+
+
+How to install Spacemacs on Ubuntu 17.10. 
+Remove your .emacs.d and .emacs from your home directory (back them up).
+git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
+Run emacs
+1. What is your preferred editing style? Choose (emacs)
+2. What distribution of spacemacs, would you like to start with? Choose (spacemacs)
+3. What type of completion framework do you want? Choose (helm)
+It will now connect to elpa and downloading a bunch of emacs packages. This is the good part. You don't
+have to search anymore and configure them.
+You will have to remove elpa Debian packages for this to work
+sudo apt remove elpa-zenburn-theme elpa-yasnippet elpa-solarized-theme org-moe elpa-org elpa-org-bullets elpa-monokai-theme elpa-markdown-mode elpa-ivy elpa-dash elpa-dash-functional elpa-company
+
