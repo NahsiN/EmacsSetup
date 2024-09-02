@@ -2,30 +2,30 @@
 #+AUTHOR: Nishan Singh Mann
 #+DATE: <2018-01-26 Fri>
 
-This document describes me setting up my Emacs on an Ubuntu system. It walks through from 
+This document describes me setting up my Emacs on an Ubuntu system. It walks through from
 install all the way to configuring it for my use. The following is a backstory to why I use Emacs.
 
-In my early days, I was looking for a universal text editor. The trend was and still is 
-to use specialized IDEs. For Matlab, use the inbuilt Matlab editor, for LaTeX use Texmaker, 
-Texworks etc, for C use Geany or some other IDE, C# use VSTS code etc. This got tiring after a while. 
-Researching into this, I realized that Emacs could be the solution. So I took the plunge and it 
-was cold! As stated by many people before me, this editor has a steep learning curve but learning 
-more about this editor and it never disappoints. 
+In my early days, I was looking for a universal text editor. The trend was and still is
+to use specialized IDEs. For Matlab, use the inbuilt Matlab editor, for LaTeX use Texmaker,
+Texworks etc, for C use Geany or some other IDE, C# use VSTS code etc. This got tiring after a while.
+Researching into this, I realized that Emacs could be the solution. So I took the plunge and it
+was cold! As stated by many people before me, this editor has a steep learning curve but learning
+more about this editor and it never disappoints.
 
-So during the days of my PhD, I used Emacs to edit my papers, Python code, C code and even some 
-Matlab code but Matlab's IDE just can't be beat for now. I met with some hiccups along the way but 
-every time, the features offered by Emacs didn't disappoint. For example, I'm yet to come across 
+So during the days of my PhD, I used Emacs to edit my papers, Python code, C code and even some
+Matlab code but Matlab's IDE just can't be beat for now. I met with some hiccups along the way but
+every time, the features offered by Emacs didn't disappoint. For example, I'm yet to come across
 something akin to preview-mode in Auctex or something as convenient as Reftex. Also using Emacs s but 
 I was convinced that this would be my next editor as it was just so slick.
 
 Fast forward to May 2017 when I first started my real job at a startup. I was given a Windows
-machine and with the refusal of the IT manager to format my machine and install Ubuntu, my 
-problems began. Forced used to Virtualbox, I installed Ubuntu MATE and set about replicating 
-the install on my PhD computer. Turns out, all these modern editors, Atom, Sublime, VSTS etc. 
-are a hog for RAM and graphics. With limited RAM and graphics capabilities, I found all these 
-editors to be laggy. At that point, I realized the price of being slick and cool. My trusty old 
-Emacs however had no such issues. It would work just fine on a Desktop, a VM or over an ssh 
-tunnel. It was functional, wasn't bloated. At that point, I knew that I was going to spend 
+machine and with the refusal of the IT manager to format my machine and install Ubuntu, my
+problems began. Forced used to Virtualbox, I installed Ubuntu MATE and set about replicating
+the install on my PhD computer. Turns out, all these modern editors, Atom, Sublime, VSTS etc.
+are a hog for RAM and graphics. With limited RAM and graphics capabilities, I found all these
+editors to be laggy. At that point, I realized the price of being slick and cool. My trusty old
+Emacs however had no such issues. It would work just fine on a Desktop, a VM or over an ssh
+tunnel. It was functional, wasn't bloated. At that point, I knew that I was going to spend
 the rest of my life looking for ways to live inside Emacs.
 
 * Installation
